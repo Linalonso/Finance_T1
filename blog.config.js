@@ -1,11 +1,11 @@
 const BLOG = {
-  title: 'T1 Finance',
-  author: 'T1 Finance',
-  email: 'i@zuolan.me',
+  title: 'T1理财',
+  author: 'T1理财',
+  email: '17linalonso@gmail.com',
   link: 'https://finance-t1.vercel.app',
   newsletter: 'T1 Finance Weekly',
   description: 'A static blog build on top of Notion and Next.js',
-  lang: 'en-US', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
+  lang: 'zh-CN', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   timezone: 'Asia/Shanghai', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif', // ['sans-serif', 'serif']
@@ -29,9 +29,9 @@ const BLOG = {
   ogImageGenerateHost: 'og-zl.vercel.app', // The link to generate OG image, don't end with a slash
   defaultCover: '/cover.jpg',
   socialLink: {
-    twitter: 'https://twitter.com/izuolan',
-    github: 'https://github.com/izuolan',
-    telegram: 'https://t.me/zuolan'
+    twitter: 'https://twitter.com/Finance_T1',
+    youtube: 'https://www.youtube.com/@Finance_T1',
+    telegram: 'https://t.me/Finance_T1'
   },
   seo: {
     keywords: ['Notionic', 'Zuolan', 'Blog'],
