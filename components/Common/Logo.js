@@ -13,8 +13,8 @@ const Logo = (props) => (
     {...props}
   >
      <g>
-      <text font-weight="bold" font-style="italic" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="80" id="svg_1" y="77.5" x="10" stroke-width="5" stroke="#000" fill="#000000">T</text>
-      <text font-style="italic" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_2" y="53.5" x="64" stroke-width="5" stroke="#000" fill="#000000">1</text>
+      <text fontWeight="bold" fontStyle="italic" textAnchor="start" fontSize="80" y="77.5" x="10" strokeWidth="5">T</text>
+      <text fontStyle="italic" textAnchor="start" fontSize="24" y="53.5" x="64" strokeWidth="5">1</text>
     </g>
   </svg>
 )
