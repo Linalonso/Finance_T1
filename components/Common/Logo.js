@@ -4,24 +4,17 @@ import * as React from 'react'
 const Logo = (props) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    width='24'
-    height='24'
+    width='48'
+    height='48'
     viewBox='0 0 100 100'
     style={{
       opacity: 1
     }}
     {...props}
   >
-    <g transform="translate(0.000000,1242.000000) scale(0.100000,-0.100000)" stroke="none">
-      <path d="M3181 8165 c-55 -223 -101 -407 -101 -410 0 -3 302 -5 670 -5 442 0
-      670 -3 670 -10 0 -6 -232 -937 -515 -2070 -283 -1133 -515 -2062 -515 -2065 0
-      -3 210 -4 467 -3 l467 3 511 2045 c281 1125 515 2057 518 2073 l7 27 678 0
-      677 0 99 398 c55 218 101 403 104 410 3 9 -364 12 -1816 12 l-1820 0 -101
-      -405z"/>
-      <path d="M6138 7385 c-244 -123 -247 -125 -257 -162 -35 -134 -81 -326 -79
-      -328 2 -1 83 28 181 66 136 52 177 64 173 51 -8 -27 -316 -1261 -316 -1267 0
-      -3 83 -5 185 -5 l184 0 10 38 c21 79 431 1722 431 1727 0 3 -60 5 -132 4
-      l-133 0 -247 -124z"/>
+     <g>
+      <text font-weight="bold" font-style="italic" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="80" id="svg_1" y="77.5" x="10" stroke-width="5" stroke="#000" fill="#000000">T</text>
+      <text font-style="italic" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_2" y="53.5" x="64" stroke-width="5" stroke="#000" fill="#000000">1</text>
     </g>
   </svg>
 )
