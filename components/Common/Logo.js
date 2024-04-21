@@ -4,7 +4,9 @@ import * as React from 'react'
 const Logo = (props) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    width="1242.000000pt" height="1242.000000pt" viewBox="0 0 1242.000000 1242.000000"
+    width='24'
+    height='24'
+    viewBox='0 0 100 100'
     style={{
       opacity: 1
     }}
