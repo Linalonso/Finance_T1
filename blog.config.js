@@ -3,7 +3,7 @@ const BLOG = {
   author: 'T1理财',
   email: '17linalonso@gmail.com',
   link: 'https://finance-t1.vercel.app',
-  newsletter: 'T1 Finance Weekly',
+  category: 'T1 Finance Weekly',
   description: '写点有价值的东西，让生活更有意义。',
   lang: 'zh-CN', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   timezone: 'Asia/Shanghai', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
