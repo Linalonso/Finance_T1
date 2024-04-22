@@ -41,21 +41,21 @@ const NavBar = () => {
     {
       id: 1,
       name: t.NAV.NEWSLETTER,
-      to: '/newsletter',
+      to: '/category',
       icon: <NewspaperIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.newsletter
     },
     {
       id: 2,
       name: t.NAV.NOTES,
-      to: '/notes',
+      to: '/articles',
       icon: <CollectionIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.notes
     },
     {
       id: 3,
       name: t.NAV.PROJECTS,
-      to: '/projects',
+      to: '/tags',
       icon: <SparklesIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.projects
     },
