@@ -40,10 +40,10 @@ const NavBar = () => {
     },
     {
       id: 1,
-      name: t.NAV.CATEGORY,
-      to: '/category',
-      icon: <CategoryIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.category
+      name: t.NAV.NEWSLETTER,
+      to: '/newsletter',
+      icon: <NewsletterIcon className='inline-block mb-1 h-5 w-5' />,
+      show: BLOG.pagesShow.newsletter
     },
     {
       id: 2,
