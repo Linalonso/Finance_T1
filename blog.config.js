@@ -42,7 +42,7 @@ const BLOG = {
   notionAccessToken: process.env.NOTION_ACCESS_TOKEN, // Useful if you prefer not to make your database public
   notionDomain: 'izuolan.notion.site',
   telegramToken: process.env.TELEGRAM_TOKEN, // The token of your Telegram bot
-  telegramChatId: '7167338983', // The chat id of your Telegram bot
+  telegramChatId: '6305284239', // The chat id of your Telegram bot
   telegramChannelUrl: 't.me/Finance_T1/', // The link of your Telegram channel
   telegramChannelName: 'Finance_T1', // The name of your Telegram channel
   craftConfigShareUrl: 'https://www.craft.do/s/kQtcWqkv98cHhB', // The link to share your craft config
