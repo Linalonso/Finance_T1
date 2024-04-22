@@ -17,10 +17,10 @@ const BLOG = {
   sortByDate: true,
   pagesShow: {
     newsletter: true,
-    notes: true,
-    projects: true,
+    notes: false,
+    projects: false,
     contact: true,
-    books: true,
+    books: false,
     friends: true
   },
   showWeChatPay: true,
@@ -34,7 +34,7 @@ const BLOG = {
     telegram: 'https://t.me/Finance_T1'
   },
   seo: {
-    keywords: ['Notionic', 'finance', 'Blog', 'T1', 'T1finance'，],
+    keywords: ['Notionic', 'finance', 'Blog', 'T1', 'T1finance'],
     googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS! Edit .env file!
