@@ -3,7 +3,7 @@ const BLOG = {
   author: 'T1理财',
   email: '17linalonso@gmail.com',
   link: 'https://finance-t1.vercel.app',
-  articles: 'T1 Finance Weekly',
+  newsletter: 'T1 Finance Weekly',
   description: '写点有价值的东西，让生活更有意义。',
   lang: 'zh-CN', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   timezone: 'Asia/Shanghai', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
@@ -16,11 +16,11 @@ const BLOG = {
   postsPerPage: 10,
   sortByDate: true,
   pagesShow: {
-    category: true,
-    articles: true,
-    tags: true,
+    newsletter: true,
+    notes: true,
+    projects: true,
     contact: true,
-    books: false,
+    books: true,
     friends: true
   },
   showWeChatPay: true,
@@ -34,7 +34,7 @@ const BLOG = {
     telegram: 'https://t.me/Finance_T1'
   },
   seo: {
-    keywords: ['Notionic', 'finance', 'Blog'，'T1'，'T1finance'，],
+    keywords: ['Notionic', 'finance', 'Blog', 'T1', 'T1finance'，],
     googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS! Edit .env file!
