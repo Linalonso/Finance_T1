@@ -5,7 +5,7 @@ import { lang } from '@/lib/lang'
 import { useRouter } from 'next/router'
 import {
   HomeIcon,
-  CategoryIcon,
+  NewspaperIcon,
   CollectionIcon,
   SparklesIcon,
   SearchIcon,
@@ -40,24 +40,24 @@ const NavBar = () => {
     },
     {
       id: 1,
-      name: t.NAV.CATEGORY,
-      to: '/category',
-      icon: <CategoryIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.category
+      name: t.NAV.NEWSLETTER,
+      to: '/newsletter',
+      icon: <NewspaperIcon className='inline-block mb-1 h-5 w-5' />,
+      show: BLOG.pagesShow.newsletter
     },
     {
       id: 2,
-      name: t.NAV.ARTICLES,
-      to: '/articles',
+      name: t.NAV.NOTES,
+      to: '/notes',
       icon: <CollectionIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.articles
+      show: BLOG.pagesShow.notes
     },
     {
       id: 3,
       name: t.NAV.PROJECTS,
-      to: '/tags',
+      to: '/projects',
       icon: <SparklesIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.tags
+      show: BLOG.pagesShow.projects
     },
     {
       id: 4,
