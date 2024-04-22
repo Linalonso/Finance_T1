@@ -54,10 +54,10 @@ const NavBar = () => {
     },
     {
       id: 3,
-      name: t.NAV.PROJECTS,
-      to: '/projects',
+      name: t.NAV.CATEGORY,
+      to: '/category',
       icon: <SparklesIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.projects
+      show: BLOG.pagesShow.category
     },
     {
       id: 4,
