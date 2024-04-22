@@ -42,7 +42,7 @@ const NavBar = () => {
       id: 1,
       name: t.NAV.CATEGORY,
       to: '/category',
-      icon: <NewsletterIcon className='inline-block mb-1 h-5 w-5' />,
+      icon: <CategoryIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.category
     },
     {
