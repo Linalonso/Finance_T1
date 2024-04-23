@@ -2,7 +2,7 @@ const BLOG = {
   title: 'T1理财',
   author: 'T1理财',
   email: '17linalonso@gmail.com',
-  link: 'www.financet1.com',
+  link: 'https://www.financet1.com',
   newsletter: 'T1 Finance Weekly',
   description: '写有价值的东西，让生活更有意义。',
   lang: 'zh-CN', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
