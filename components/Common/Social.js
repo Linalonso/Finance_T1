@@ -74,6 +74,29 @@ const Social = () => {
         </svg>
       </Link>
 
+      <Link
+        href={`${BLOG.socialLink.linktree}`}
+        scroll={false}
+        target='_blank'
+        aria-label='Linktree'
+        className='text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100'
+      >
+        <svg
+          className='w-5 h-5'
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          fill='none'
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 10h16" /><path d="M6.5 4.5l11 11" /><path d="M6.5 15.5l11 -11" /><path d="M12 10v-8" /><path d="M12 15v7" />
+        </svg>
+      </Link>
+            
     </div>
   )
 }
