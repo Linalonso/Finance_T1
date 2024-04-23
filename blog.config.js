@@ -32,6 +32,7 @@ const BLOG = {
     twitter: 'https://twitter.com/Finance_T1',
     youtube: 'https://www.youtube.com/@Finance_T1',
     telegram: 'https://t.me/Finance_T1'
+    linktree: 'https://linktr.ee/Finance_T1'
   },
   seo: {
     keywords: ['理财', 'finance', 'Blog', 'T1', 'T1finance'],
