@@ -4,7 +4,7 @@ const BLOG = {
   email: '17linalonso@gmail.com',
   link: 'https://finance-t1.vercel.app',
   newsletter: 'T1 Finance Weekly',
-  description: '写点有价值的东西，让生活更有意义。',
+  description: '写有价值的东西，让生活更有意义。',
   lang: 'zh-CN', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   timezone: 'Asia/Shanghai', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
   appearance: 'auto', // ['light', 'dark', 'auto'],
@@ -16,7 +16,7 @@ const BLOG = {
   postsPerPage: 10,
   sortByDate: true,
   pagesShow: {
-    newsletter: true,
+    newsletter: false,
     notes: false,
     category: true,
     contact: true,
