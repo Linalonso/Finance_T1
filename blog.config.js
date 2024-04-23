@@ -31,7 +31,7 @@ const BLOG = {
   socialLink: {
     twitter: 'https://twitter.com/Finance_T1',
     youtube: 'https://www.youtube.com/@Finance_T1',
-    telegram: 'https://t.me/Finance_T1'
+    telegram: 'https://t.me/Finance_T1',
     linktree: 'https://linktr.ee/Finance_T1'
   },
   seo: {
