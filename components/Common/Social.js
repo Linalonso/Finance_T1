@@ -18,6 +18,9 @@ const Social = () => {
           height='24'
           viewBox='0 0 24 24'
           fill='currentColor'
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           xmlns='http://www.w3.org/2000/svg'
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
@@ -37,6 +40,9 @@ const Social = () => {
           height='24'
           viewBox='0 0 24 24'
           fill='currentColor'
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           xmlns='http://www.w3.org/2000/svg'
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
@@ -56,6 +62,9 @@ const Social = () => {
           height='24'
           viewBox='0 0 24 24'
           fill='currentColor'
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           xmlns='http://www.w3.org/2000/svg'
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" /><path d="M10 9l5 3l-5 3z" />
