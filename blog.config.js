@@ -35,13 +35,13 @@ const BLOG = {
     linktree: 'https://linktr.ee/Finance_T1'
   },
   seo: {
-    keywords: ['理财', 'finance', 'Blog', 'T1', 'T1finance', '富途’, ‘美股开户’, ‘港股开户’, ‘富途开户’, ‘老虎开户’, ‘长桥开户’, ‘盈立开户’, ‘华盛开户’, ‘moomoo开户’, ‘老虎新加坡开户’, ‘长桥新加坡开户’, ‘盈立新加坡开户’, ‘盈透开户’, ‘必贝开户’],
+    keywords: ['理财', 'finance', 'Blog', 'T1', 'T1finance', '富途', '美股开户', '港股开户', '富途开户', '老虎开户', '长桥开户', '盈立开户', '华盛开户', 'moomoo开户', '老虎新加坡开户', '长桥新加坡开户', '盈立新加坡开户', '盈透开户', '必贝开户'],
     googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS! Edit .env file!
   notionSpacesId: process.env.NOTION_SPACES_ID, // DO NOT CHANGE THIS! Edit .env file!
   notionAccessToken: process.env.NOTION_ACCESS_TOKEN, // Useful if you prefer not to make your database public
-  notionDomain: 'quilled-sandpaper-11b.notion.site',
+  notionDomain: 'zuolan.notion.site',
   telegramToken: process.env.TELEGRAM_TOKEN, // The token of your Telegram bot
   telegramChatId: '6305284239', // The chat id of your Telegram bot
   telegramChannelUrl: 't.me/Finance_T1/', // The link of your Telegram channel
