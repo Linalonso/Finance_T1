@@ -29,8 +29,8 @@ class MyDocument extends Document {
             {
               '@context': 'https://schema.org/',
               '@type': 'WebSite',
-              'name': BLOG.T1理财,
-              'url': BLOG.www.financet1.com/
+              'name': BLOG.title,
+              'url': BLOG.link
             }
           )}} />
           {BLOG.appearance === 'auto' ? (
