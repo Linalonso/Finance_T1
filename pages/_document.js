@@ -24,6 +24,15 @@ class MyDocument extends Document {
             title='RSS 2.0'
             href='/feed'
           ></link>
+          <script type="application/ld+json" 
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(
+            {
+              '@context': 'https://schema.org/',
+              '@type': 'WebSite',
+              'name': BLOG.T1理财,
+              'url': BLOG.www.financet1.com/
+            }
+          )}} />
           {BLOG.appearance === 'auto' ? (
             <>
               <meta
