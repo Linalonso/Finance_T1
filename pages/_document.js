@@ -56,6 +56,7 @@ class MyDocument extends Document {
               }
             />
           )}
+          <meta name="baidu-site-verification" content="codeva-C9kAMC471L" />
         </Head>
         <body className='bg-day dark:bg-night'>
           <Main />
