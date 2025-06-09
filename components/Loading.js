@@ -29,7 +29,6 @@ export default function Loading({ notionSlug }) {
               style={{
                 opacity: 1
               }}
-              {...props}
             >
                <g>
                 <text fontWeight="bold" fontStyle="italic" textAnchor="start" fontSize="80" y="77.5" x="10" strokeWidth="5">T</text>
