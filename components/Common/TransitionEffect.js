@@ -2,50 +2,27 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/router'
 
 const variants = {
-  in: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      duration: 0.25,
-      delay: 0.25
-    }
-  },
-  out: {
-    opacity: 0,
-    scale: 1,
-    y: 40,
-    transition: {
-      duration: 0.25
-    }
-  }
+  hidden: { opacity: 0, y: 16 },
+  enter: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -8 },
 }
 
-/*
- * Read the blog post here:
- * https://letsbuildui.dev/articles/animated-page-transitions-in-nextjs
- */
 const TransitionEffect = ({ children }) => {
   const { asPath } = useRouter()
 
   return (
-    <div className='effect-1'>
-      <AnimatePresence
-        initial={false}
-        exitBeforeEnter
-        onExitComplete={() => window.scrollTo(0, 0)}
+    <AnimatePresence mode='wait' initial={false}>
+      <motion.div
+        key={asPath}
+        initial='hidden'
+        animate='enter'
+        exit='exit'
+        variants={variants}
+        transition={{ duration: 0.25, ease: 'easeInOut' }}
       >
-        <motion.div
-          key={asPath}
-          variants={variants}
-          animate='in'
-          initial='out'
-          exit='out'
-        >
-          {children}
-        </motion.div>
-      </AnimatePresence>
-    </div>
+        {children}
+      </motion.div>
+    </AnimatePresence>
   )
 }
 

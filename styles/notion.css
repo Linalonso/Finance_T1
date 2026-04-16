@@ -1,4 +1,6 @@
 /* NOTION CSS OVERRIDE */
+@config "../tailwind.config.js";
+@reference "tailwindcss";
 
 .notion {
   @apply text-gray-600 dark:text-gray-300;
@@ -53,6 +55,14 @@ svg + .notion-page-title-text {
   @apply w-auto px-0;
 }
 
+/* Remove left margin of notion-page on devices larger than mobile */
+@media (min-width: 768px) {
+  .notion-page,
+  .notion-renderer-override .notion-page {
+    margin-left: 0 !important;
+  }
+}
+
 .notion-quote {
   padding: 0.2em 0.9em;
   font-size: 1em;
@@ -88,7 +98,8 @@ svg + .notion-page-title-text {
 }
 .notion-table-of-contents {
   /* @apply 2xl:max-w-xs 2xl:fixed 2xl:z-10 2xl:top-40 2xl:inset-x-3/4; */
-  @apply bg-day dark:bg-night;
+  /* @apply bg-day dark:bg-night; */
+  @apply rounded-lg;
 }
 .notion-table-of-contents-item {
   @apply rounded-lg px-2 dark:text-gray-200;
@@ -110,10 +121,11 @@ svg + .notion-page-title-text {
 }
 
 .notion-code {
-  @apply border border-gray-200 dark:border-none;
+  @apply border border-gray-200 dark:border-none dark:bg-gray-700;
   font-size: var(--prism-font-size);
   line-height: var(--prism-line-height);
 }
+
 .notion-code-copy-button {
   @apply text-gray-600 dark:text-gray-400 bg-day dark:bg-night;
   padding: 0.4em;
@@ -137,13 +149,13 @@ svg + .notion-page-title-text {
   @apply max-w-full;
 }
 .notion-collection > .notion-collection-header {
-  @apply px-0 !important;
+  @apply !px-0;
 }
 .notion-collection > .notion-table {
-  @apply max-w-full !important;
+  @apply !max-w-full;
 }
 .notion-collection > .notion-table > .notion-table-view {
-  @apply px-0 !important;
+  @apply !px-0;
 }
 .notion-collection-view-type {
   @apply hidden;

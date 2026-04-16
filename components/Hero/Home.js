@@ -5,11 +5,9 @@ import Social from '../Common/Social.js'
 import { lang } from '@/lib/lang'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import {
-  MailIcon,
-  RssIcon,
-  ClipboardCheckIcon
-} from '@heroicons/react/outline'
+import EnvelopeIcon from '@heroicons/react/24/outline/EnvelopeIcon'
+import RssIcon from '@heroicons/react/24/outline/RssIcon'
+import ClipboardDocumentCheckIcon from '@heroicons/react/24/outline/ClipboardDocumentCheckIcon'
 import NotionRenderer from '@/components/Post/NotionRenderer'
 
 const Hero = ({ blockMap }) => {
@@ -27,10 +25,10 @@ const Hero = ({ blockMap }) => {
 
   return (
     <>
-      <div className='container mx-auto flex px-5 py-2 mb-10 md:flex-row flex-col items-center'>
-        <div className='flex flex-col md:w-3/5 md:items-start mb-6 md:mb-0 text-left'>
+      <div className='container mx-auto flex px-5 py-2 mb-10 md:flex-row flex-col items-center md:items-start'>
+        <div className='flex flex-col md:w-3/5 md:items-start mb-6 md:mb-0 text-left min-h-[8rem]'>
           <NotionRenderer
-            className='md:ml-0'
+            className='notion-renderer-override'
             blockMap={blockMap}
             frontMatter={{}}
             subPageTitle={null}
@@ -38,8 +36,8 @@ const Hero = ({ blockMap }) => {
           <Social />
           <div className='flex flex-col sm:flex-row sm:justify-center gap-4 mt-6'>
             <Link passHref href='/contact' scroll={false}>
-              <button className='w-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 inline-flex py-3 px-5 rounded-lg items-center'>
-                <MailIcon className='inline-block text-gray-600 dark:text-day h-7 w-7 mt-1' />
+              <button className='w-full cursor-pointer bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 inline-flex py-3 px-5 rounded-lg items-center'>
+                <EnvelopeIcon className='inline-block text-gray-600 dark:text-day h-7 w-7 mt-1' />
                 <span className='ml-4 flex items-start flex-col leading-none'>
                   <span className='text-xs text-gray-600 dark:text-day mb-1'>
                     {t.HERO.HOME.CONTACT_BUTTON_DES}
@@ -53,7 +51,7 @@ const Hero = ({ blockMap }) => {
                 disabled
                 className='bg-gray-200 dark:bg-gray-600 inline-flex py-3 px-5 rounded-lg items-center'
               >
-                <ClipboardCheckIcon className='inline-block text-gray-600 dark:text-day h-7 w-7' />
+                <ClipboardDocumentCheckIcon className='inline-block text-gray-600 dark:text-day h-7 w-7' />
                 <span className='ml-4 flex items-start flex-col leading-none'>
                   <span className='text-xs text-gray-600 dark:text-day mb-1'>
                     {t.HERO.RSS_BUTTON_DES_COPIED}
@@ -66,7 +64,7 @@ const Hero = ({ blockMap }) => {
             ) : (
               <button
                 onClick={() => clickCopy()}
-                className='bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 inline-flex py-3 px-5 rounded-lg items-center'
+                className='cursor-pointer bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 inline-flex py-3 px-5 rounded-lg items-center'
               >
                 <RssIcon className='inline-block text-gray-600 dark:text-day h-7 w-7' />
                 <span className='ml-4 flex items-start flex-col leading-none'>
@@ -79,9 +77,7 @@ const Hero = ({ blockMap }) => {
             )}
           </div>
         </div>
-        <div className='w-2/5'>
-          <Avatar className='text-gray-600 dark:text-gray-300' />
-        </div>
+        <Avatar className='w-2/5 flex items-center justify-center' />
       </div>
     </>
   )

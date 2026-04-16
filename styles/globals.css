@@ -1,13 +1,18 @@
+@import './prism.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './prism.css';
 
 html {
   --scrollbarBG: #ffffff00;
   --thumbBG: #b8b8b8;
+  --color-inverse: #E5E7EB;
   overflow-y: scroll;
   overflow-x: auto;
+}
+
+html.dark {
+  --color-inverse: #212936;
 }
 html::-webkit-scrollbar {
   width: 5px;
@@ -24,14 +29,14 @@ html::-webkit-scrollbar-thumb {
 }
 
 ::selection {
-  background: rgba(45, 170, 219, 0.3);
+  background: rgb(45, 170, 219, 0.3);
 }
 
 .sticky-nav {
   position: sticky;
   z-index: 10;
   top: -1px;
-  backdrop-filter: blur(5px);
+  backdrop-filter: none;
   transition: all 0.5s cubic-bezier(0.4, 0, 0, 1);
   border-bottom-color: transparent;
 }
@@ -42,10 +47,11 @@ html::-webkit-scrollbar-thumb {
 
 .sticky-nav-full {
   @apply border-none;
+  backdrop-filter: blur(5px);
 }
 
-.sticky-nav-full .nav {
-  @apply text-gray-600 dark:text-gray-300;
+.sticky-nav-full .nav-bar-pill {
+  @apply bg-transparent dark:bg-transparent rounded-none;
 }
 
 nav {
@@ -55,6 +61,10 @@ nav {
 
 .nav-func-btn {
   margin-top: 0.15rem;
+}
+
+.nav-hover {
+  @apply hover:bg-gray-500/20 dark:hover:bg-gray-300/20;
 }
 
 .article-tags::-webkit-scrollbar {
@@ -93,18 +103,128 @@ nav {
 @supports not (backdrop-filter: none) {
   .sticky-nav-full {
     backdrop-filter: none;
-    @apply bg-day bg-opacity-90 dark:bg-night dark:bg-opacity-90;
+    @apply bg-day/90 dark:bg-night/90;
   }
 }
 
-.md-cover {
-  @apply bg-gradient-to-r from-gray-100 to-gray-100 group-hover:from-gray-200 group-hover:via-gray-200 dark:from-gray-700 dark:to-gray-700 dark:group-hover:from-gray-600 dark:group-hover:via-gray-600 group-hover:to-transparent;
+/* Table of contents component styles */
+.table-of-contents {
+  top: 90px;
+  @apply hidden xl:block fixed;
+  @apply w-56 max-h-96 overflow-y-auto;
+  @apply text-sm text-gray-500 dark:text-gray-400;
+  /* Responsive right positioning - avoid sticking to the edge on wide screens */
+  right: max(2rem, calc((100vw - 1400px) / 2 + 2rem));
 }
 
-.sm-cover {
-  @apply bg-gradient-to-r from-gray-100 via-gray-100 group-hover:from-gray-200 group-hover:via-gray-200 dark:from-gray-700 dark:via-gray-700 dark:group-hover:from-gray-600 dark:group-hover:via-gray-600 to-transparent;
+/* Multi-level title decoration effect */
+.table-of-contents .hover\:bg-gray-200:hover a {
+  @apply text-blue-600 dark:text-blue-400;
 }
 
-.rounded-fix {
-  clip-path: inset(0 round 12px);
+
+/* ── Markdown post renderer ─────────────────────────────────────────── */
+.markdown-body {
+  @apply text-gray-800 dark:text-gray-200 leading-7;
+  font-size: 1rem;
 }
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  @apply font-bold text-black dark:text-white mt-8 mb-3;
+}
+
+.markdown-body h1 { @apply text-3xl; }
+.markdown-body h2 { @apply text-2xl; }
+.markdown-body h3 { @apply text-xl; }
+.markdown-body h4 { @apply text-lg; }
+
+.markdown-body p {
+  @apply my-4;
+}
+
+.markdown-body a {
+  @apply text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300;
+}
+
+.markdown-body ul {
+  @apply list-disc pl-6 my-4 space-y-1;
+}
+
+.markdown-body ol {
+  @apply list-decimal pl-6 my-4 space-y-1;
+}
+
+.markdown-body blockquote {
+  @apply border-l-4 border-gray-300 dark:border-gray-600 pl-4 my-4 italic text-gray-600 dark:text-gray-400;
+}
+
+.markdown-body code {
+  @apply bg-gray-100 dark:bg-gray-800 text-pink-600 dark:text-pink-400 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.markdown-body pre {
+  @apply bg-gray-100 dark:bg-gray-800 rounded-lg p-4 my-4 overflow-x-auto;
+}
+
+.markdown-body pre code {
+  @apply bg-transparent text-gray-800 dark:text-gray-200 p-0 text-sm;
+}
+
+.markdown-body table {
+  @apply w-full border-collapse my-4 text-sm;
+}
+
+.markdown-body th {
+  @apply bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 px-4 py-2 text-left font-semibold;
+}
+
+.markdown-body td {
+  @apply border border-gray-300 dark:border-gray-600 px-4 py-2;
+}
+
+.markdown-body img {
+  @apply max-w-full rounded-lg my-4;
+}
+
+.markdown-body hr {
+  @apply border-gray-200 dark:border-gray-700 my-8;
+}
+
+/* ── Highlight.js dark-mode overrides ──────────────────────────────────── */
+.dark .hljs {
+  color: #abb2bf;
+  background: #282c34;
+}
+.dark .hljs-doctag,
+.dark .hljs-keyword,
+.dark .hljs-meta .hljs-keyword,
+.dark .hljs-template-tag,
+.dark .hljs-template-variable,
+.dark .hljs-type,
+.dark .hljs-variable.language_ { color: #c678dd; }
+.dark .hljs-title,
+.dark .hljs-title.class_,
+.dark .hljs-title.class_.inherited__,
+.dark .hljs-title.function_ { color: #61aeee; }
+.dark .hljs-attr,
+.dark .hljs-attribute,
+.dark .hljs-literal,
+.dark .hljs-meta,
+.dark .hljs-number,
+.dark .hljs-operator,
+.dark .hljs-selector-attr,
+.dark .hljs-selector-class,
+.dark .hljs-selector-id,
+.dark .hljs-variable { color: #d19a66; }
+.dark .hljs-string,
+.dark .hljs-meta .hljs-string { color: #98c379; }
+.dark .hljs-comment { color: #5c6370; font-style: italic; }
+.dark .hljs-built_in,
+.dark .hljs-params,
+.dark .hljs-property,
+.dark .hljs-punctuation { color: #abb2bf; }

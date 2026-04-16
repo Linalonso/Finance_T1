@@ -3,20 +3,16 @@ import Link from 'next/link'
 import BLOG from '@/blog.config'
 import { lang } from '@/lib/lang'
 import { useRouter } from 'next/router'
-import {
-  HomeIcon,
-  NewspaperIcon,
-  CollectionIcon,
-  SparklesIcon,
-  SearchIcon,
-  MenuIcon
-} from '@heroicons/react/outline'
+import HomeIcon from '@heroicons/react/24/outline/HomeIcon'
+import NewspaperIcon from '@heroicons/react/24/outline/NewspaperIcon'
+import RectangleStackIcon from '@heroicons/react/24/outline/RectangleStackIcon'
+import SparklesIcon from '@heroicons/react/24/outline/SparklesIcon'
+import MagnifyingGlassIcon from '@heroicons/react/24/outline/MagnifyingGlassIcon'
+import Bars3Icon from '@heroicons/react/24/outline/Bars3Icon'
 import Social from '../Common/Social.js'
 import ThemeSwitcher from './ThemeSwitcher.js'
 import LangSwitcher from './LangSwitcher.js'
 import Logo from '@/components/Common/Logo'
-import { motion } from 'framer-motion'
-
 const NavBar = () => {
   const router = useRouter()
   const { locale } = useRouter()
@@ -49,26 +45,26 @@ const NavBar = () => {
       id: 2,
       name: t.NAV.NOTES,
       to: '/notes',
-      icon: <CollectionIcon className='inline-block mb-1 h-5 w-5' />,
+      icon: <RectangleStackIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.notes
     },
     {
       id: 3,
-      name: t.NAV.CATEGORY,
-      to: '/category',
+      name: t.NAV.PROJECTS,
+      to: '/projects',
       icon: <SparklesIcon className='inline-block mb-1 h-5 w-5' />,
-      show: BLOG.pagesShow.category
+      show: BLOG.pagesShow.projects
     },
     {
       id: 4,
       name: t.NAV.SEARCH,
       to: '/search',
-      icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
+      icon: <MagnifyingGlassIcon className='inline-block mb-1 h-5 w-5' />,
       show: true
     }
   ]
   return (
-    <motion.div className='flex'>
+    <div className='flex nav-bar-pill backdrop-blur-sm md:p-1 bg-gray-100/40 dark:bg-gray-800/40 rounded-xl'>
       {/* Desktop Menu */}
       <ul className='hidden md:flex md:gap-1'>
         {links.map(
@@ -77,8 +73,8 @@ const NavBar = () => {
               <Link passHref href={link.to} key={link.id} scroll={false}>
                 <li
                   className={`${
-                    activeMenu === link.to ? 'bg-gray-200 dark:bg-gray-700' : ''
-                  } hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer rounded-lg block py-1 px-2 nav`}
+                    activeMenu === link.to ? 'bg-gray-500/10 dark:bg-gray-300/10' : ''  
+                  } nav-hover cursor-pointer rounded-lg block nav py-1 px-2`}
                 >
                   <div className='font-light'>
                     {link.icon}
@@ -97,16 +93,16 @@ const NavBar = () => {
       </div>
 
       {/* Mobile Phone Menu */}
-      <div className='md:hidden mr-2 block '>
+      <div className='md:hidden block mr-2'>
         <button
           type='button' aria-label='Menu'
           onClick={() => setShowMenu((showMenu) => !showMenu)}
-          className='hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer rounded-lg block p-2 -mr-3 md:pb-3'
+          className='nav-hover cursor-pointer rounded-lg block p-1 m-1 -mr-1'
         >
-          <MenuIcon className='inline-block mb-1 h-5 w-5' />
+          <Bars3Icon className='inline-block mb-1 h-5 w-5' />
         </button>
         {showMenu && (
-          <div className='absolute right-0 w-40 mr-4 mt-2 bg-white dark:bg-gray-700 divide-y divide-gray-200 dark:divide-gray-600 rounded-md shadow-lg outline-none'>
+          <div className='absolute right-0 w-40 mr-1 mt-1 bg-white dark:bg-gray-700 divide-y divide-gray-200 dark:divide-gray-600 rounded-md shadow-lg outline-none'>
             <div className='py-1'>
               {links.map(
                 (link) =>
@@ -129,7 +125,7 @@ const NavBar = () => {
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   )
 }
 
@@ -149,24 +145,36 @@ const Header = ({ navBarTitle, fullWidth }) => {
   useEffect(() => {
     const sentinelEl = sentinelRef.current
     const observer = new window.IntersectionObserver(handler)
-    observer.observe(sentinelEl)
+    if (sentinelEl) observer.observe(sentinelEl)
 
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 400) {
-        setShowTitle(true)
-      } else {
-        setShowTitle(false)
+    const readPastThreshold = () => window.pageYOffset > 400
+    let lastPast = readPastThreshold()
+    setShowTitle(lastPast)
+    let raf = 0
+    const flush = () => {
+      raf = 0
+      const next = readPastThreshold()
+      if (next !== lastPast) {
+        lastPast = next
+        setShowTitle(next)
       }
-    })
-    return () => {
-      sentinelEl && observer.unobserve(sentinelEl)
     }
-  }, [handler, sentinelRef])
+    const onScroll = () => {
+      if (raf) return
+      raf = window.requestAnimationFrame(flush)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', onScroll)
+      if (raf) window.cancelAnimationFrame(raf)
+    }
+  }, [handler])
   return (
     <>
       <div className='observer-element h-4 md:h-12' ref={sentinelRef}></div>
       <div
-        className={`sticky-nav m-auto w-full h-6 flex flex-row justify-between items-center mb-2 md:mb-12 py-8 bg-opacity-60 ${
+        className={`sticky-nav m-auto w-full h-6 flex flex-row justify-between items-center mb-2 md:mb-12 py-8 ${
           !fullWidth ? 'max-w-3xl px-4' : 'px-4 md:px-24'
         }`}
         id='sticky-nav'
@@ -174,13 +182,13 @@ const Header = ({ navBarTitle, fullWidth }) => {
       >
         <div className='flex items-center'>
           <Link passHref href='/' scroll={false} aria-label={BLOG.title}>
-            <motion.div>
-              <Logo className='h-6 hover:text-blue-500 dark:hover:text-blue-500 fill-current' />
-            </motion.div>
+            <div>
+              <Logo className='h-6 hover:text-blue-500 fill-current' />
+            </div>
           </Link>
           {navBarTitle ? (
             <p
-              className={`ml-2 font-medium ${
+              className={`ml-5 font-medium ${
                 !showTitle ? 'hidden' : 'hidden xl:block'
               }`}
             >
@@ -188,7 +196,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
             </p>
           ) : (
             <p
-              className={`ml-2 font-medium ${
+              className={`ml-5 font-medium ${
                 !showTitle ? 'hidden' : 'hidden xl:block'
               }`}
             >

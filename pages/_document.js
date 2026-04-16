@@ -11,43 +11,31 @@ class MyDocument extends Document {
     return (
       <Html lang={BLOG.lang}>
         <Head>
-          <link rel='icon' href='/favicon.ico' />
-          <link rel='icon' href='/favicon.png' type='image/svg+xml' />
+          <link key='favicon-ico' rel='icon' href='/favicon.ico' />
+          <link key='favicon-svg' rel='icon' href='/favicon.svg' type='image/svg+xml' />
           <link
+            key='apple-touch-icon'
             rel='apple-touch-icon'
             sizes='192x192'
             href='/favicon.png'
-          ></link>
+          />
           <link
+            key='rss'
             rel='alternate'
             type='application/rss+xml'
             title='RSS 2.0'
             href='/feed'
-          ></link>
-          <script type="application/ld+json" 
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(
-            {
-              '@context': 'https://schema.org/',
-              '@type': 'WebSite',
-              'name': BLOG.title,
-              'url': BLOG.link
-            }
-          )}} />
+          />
           {BLOG.appearance === 'auto' ? (
-            <>
-              <meta
-                name='theme-color'
-                content={BLOG.lightBackground}
-                media='(prefers-color-scheme: light)'
-              />
-              <meta
-                name='theme-color'
-                content={BLOG.darkBackground}
-                media='(prefers-color-scheme: dark)'
-              />
-            </>
+            <meta
+              key='theme-color-light'
+              name='theme-color'
+              content={BLOG.lightBackground}
+              media='(prefers-color-scheme: light)'
+            />
           ) : (
             <meta
+              key='theme-color'
               name='theme-color'
               content={
                 BLOG.appearance === 'dark'
@@ -56,7 +44,14 @@ class MyDocument extends Document {
               }
             />
           )}
-          <meta name="baidu-site-verification" content="codeva-C9kAMC471L" />
+          {BLOG.appearance === 'auto' && (
+            <meta
+              key='theme-color-dark'
+              name='theme-color'
+              content={BLOG.darkBackground}
+              media='(prefers-color-scheme: dark)'
+            />
+          )}
         </Head>
         <body className='bg-day dark:bg-night'>
           <Main />

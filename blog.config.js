@@ -75,9 +75,13 @@ const BLOG = {
     },
     utterancesConfig: {
       repo: ''
+    },
+    fumaConfig: {
+      // Fuma Comment uses GitHub OAuth via NextAuth.
+      // Set GITHUB_ID, GITHUB_SECRET, and NEXTAUTH_SECRET in your environment secrets.
     }
   },
-  isProd: process.env.VERCEL_ENV === 'production' // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)
+  isProd: process.env.NODE_ENV === 'production' // distinguish between development and production environment
 }
 // export default BLOG
 module.exports = BLOG

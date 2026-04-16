@@ -13,7 +13,7 @@ async function getBlockItem(path) {
   return { blockItem: null, siteConfigObj }
 }
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   // const { pathname, slug } = req.query
   const { pathname } = req.query
   let realPath
@@ -86,7 +86,7 @@ module.exports = async (req, res) => {
     .replace('<meta name="robots" content="noindex">', '')
     .replace(
       '<link rel="icon" href="/share/static/favicon.ico">',
-      '<link rel="icon" href="/favicon.png">'
+      '<link rel="icon" href="/favicon.svg">'
     )
     .replace(
       '<link rel="apple-touch-icon" href="/share/static/logo-192.png">',
